@@ -1,0 +1,12 @@
+.vscode
+
+analise/benchmark
+__pycache__
+
+*.exe
+*.o
+*.csv
+*.txt
+*.png
+*.out
+teste/
