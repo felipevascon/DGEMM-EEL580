@@ -78,11 +78,11 @@ int main() {
             double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;
 
             // Exibe no console
-            printf("Matrix size: %dx%d, Execution time: %.3lf seconds\n",
+            printf("Matrix size: %dx%d, Execution time: %.4lf seconds\n",
                    n, n, elapsed_time);
 
             // Grava o tempo no arquivo
-            fprintf(file, "Matrix size: %dx%d, Execution time: %.3lf seconds\n",
+            fprintf(file, "Matrix size: %dx%d, Execution time: %.4lf seconds\n",
                     n, n, elapsed_time);
 
             // Libera a memória alocada para as matrizes
