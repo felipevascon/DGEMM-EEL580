@@ -16,12 +16,12 @@ void do_block(int n, int si, int sj, int sk,double *A, double *B, double *C){
                 __m256d bb = _mm256_broadcast_sd(B + j * n + k);
             for (int r = 0; r < UNROLL; r++) {
             // Load elements from arrays A and perform manual multiply and add
-        __m256d a = _mm256_load_pd(A + n * k + r * 4 + i);
-        c[r] = _mm256_add_pd(c[r], _mm256_mul_pd(a, bb));
+            __m256d a = _mm256_load_pd(A + n * k + r * 4 + i);
+            c[r] = _mm256_add_pd(c[r], _mm256_mul_pd(a, bb));
         }
-        }
-        for (int r = 0; r < UNROLL; r++)
-            _mm256_store_pd(C + i + r * 4 + j * n, c[r]);
+    }
+            for (int r = 0; r < UNROLL; r++)
+                _mm256_store_pd(C + i + r * 4 + j * n, c[r]);
         }
         }
 void dgemm(int n, double *A, double *B, double *C) {
@@ -42,8 +42,7 @@ matrix[i] = randomDouble * 10.0;
 }
 }
 int main() {
-size_t n = 8192;
-;  // tamanho da matriz
+size_t n = 8192;  // tamanho da matriz
 
     // Alocar memória alinhada em 32 bytes
     double* A = (double*) _mm_malloc(n * n * sizeof(double), 32);
